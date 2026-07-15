@@ -3,19 +3,18 @@ class Solution {
         int a[][] = new int[m][n];
         int c = 0;
         for (int[] y : indices) {
+            int x=y[0];
+            int z=y[1];
             for (int i = 0; i < n; i++) {
-                a[y[0]][i]++;
-                if (a[y[0]][i] % 2 == 1)
-                    c++;
-                else
-                    c--;
+                a[x][i]++;
             }
             for (int i = 0; i < m; i++) {
-                a[i][y[1]]++;
-                if (a[i][y[1]] % 2 == 1)
-                    c++;
-                else
-                    c--;
+                a[i][z]++;
+            }
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(a[i][j]%2!=0) c++;
             }
         }
         return c;
